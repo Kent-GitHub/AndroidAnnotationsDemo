@@ -4,6 +4,6 @@ import org.androidannotations.annotations.EActivity;
 
 import android.app.Activity;
 @EActivity
-public class Facty extends Activity{
+public class FActy extends Activity{
 
 }

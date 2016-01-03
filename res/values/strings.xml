@@ -4,5 +4,9 @@
     <string name="app_name">AndroidAnnotationsDemo</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
-
+	<!-- 
+	<string name="from_html">.@FromHtml</string>
+	<string name="html_res">.@HtmlRes</string>
+	 -->
+	<string name="hello_html"><![CDATA[Hello<b>World</b>!]]></string> 
 </resources>

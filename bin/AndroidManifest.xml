@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.androidannotationsdemo"
+    package="com.kent.androidannotationsdemo"
     android:versionCode="1"
     android:versionName="1.0" android:installLocation="preferExternal">
 
@@ -12,6 +12,7 @@
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
+        android:name="com.a.enhanced_components.MyApplication_"
         android:theme="@style/AppTheme" >
         <activity
             android:name="com.kent.annotationsdemo.MainActivity_"
@@ -23,8 +24,15 @@
             </intent-filter>
         </activity>
         <activity android:name="com.a.enhanced_components.AActy_"></activity>
+        <activity android:name="com.a.enhanced_components.FragmentActy_"></activity>
+        <provider android:name="com.a.enhanced_components.MyProvider_"
+            android:authorities=""></provider>
+        <receiver android:name="com.a.enhanced_components.MyReceiver_"></receiver>
+        <service android:name="com.a.enhanced_components.MyService_"></service>
+        <service android:name="com.a.enhanced_components.MyIntentService_"></service>
         <activity android:name="com.b.injection.BActy_"></activity>
         <activity android:name="com.c.event_binding.CActy_"></activity>
+        <activity android:name="com.c.event_binding.ListViewActy_"></activity>
         <activity android:name="com.d.threading.DActy_"></activity>
         <activity android:name="com.e.misc.EActy_"></activity>
         <activity android:name="com.f.resource_injection.Facty_"></activity>
