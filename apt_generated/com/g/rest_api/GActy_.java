@@ -5,14 +5,13 @@
 
 package com.g.rest_api;
 
-import org.androidannotations.api.builder.ActivityIntentBuilder;
-import org.androidannotations.api.view.HasViews;
-import org.androidannotations.api.view.OnViewChangedNotifier;
-
 import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup.LayoutParams;
+import org.androidannotations.api.builder.ActivityIntentBuilder;
+import org.androidannotations.api.view.HasViews;
+import org.androidannotations.api.view.OnViewChangedNotifier;
 
 public final class GActy_
     extends GActy

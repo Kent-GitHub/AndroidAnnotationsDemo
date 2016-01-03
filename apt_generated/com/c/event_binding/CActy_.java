@@ -5,11 +5,6 @@
 
 package com.c.event_binding;
 
-import org.androidannotations.api.builder.ActivityIntentBuilder;
-import org.androidannotations.api.view.HasViews;
-import org.androidannotations.api.view.OnViewChangedListener;
-import org.androidannotations.api.view.OnViewChangedNotifier;
-
 import android.content.Context;
 import android.os.Bundle;
 import android.text.Editable;
@@ -27,9 +22,12 @@ import android.widget.EditText;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
-
 import com.kent.androidannotationsdemo.R.id;
 import com.kent.androidannotationsdemo.R.layout;
+import org.androidannotations.api.builder.ActivityIntentBuilder;
+import org.androidannotations.api.view.HasViews;
+import org.androidannotations.api.view.OnViewChangedListener;
+import org.androidannotations.api.view.OnViewChangedNotifier;
 
 public final class CActy_
     extends CActy
@@ -83,10 +81,10 @@ public final class CActy_
 
     @Override
     public void onViewChanged(HasViews hasViews) {
-        seekBarStatus = ((TextView) hasViews.findViewById(id.c_seekBar_status));
         edTv = ((EditText) hasViews.findViewById(id.c_edTv));
-        infoTv = ((TextView) hasViews.findViewById(id.c_tv_showInfo));
         seekBarTv = ((TextView) hasViews.findViewById(id.c_seekBar_tv));
+        infoTv = ((TextView) hasViews.findViewById(id.c_tv_showInfo));
+        seekBarStatus = ((TextView) hasViews.findViewById(id.c_seekBar_status));
         tv = ((TextView) hasViews.findViewById(id.c_tv));
         {
             View view = hasViews.findViewById(id.c_btn_submit);
@@ -204,9 +202,9 @@ public final class CActy_
                     @Override
                     public void onTextChanged(CharSequence s, int start, int before, int count) {
                         CActy_.this.onTvTextChange(s, view, before, start, count);
-                        CActy_.this.ctvTextChange();
                         CActy_.this.c_TvTextChanged();
                         CActy_.this.textChange();
+                        CActy_.this.ctvTextChange();
                     }
 
                     @Override
@@ -284,16 +282,16 @@ public final class CActy_
             return true;
         }
         int itemId_ = item.getItemId();
+        if (itemId_ == id.action_settings2) {
+            action_settings2Selected(item);
+            return true;
+        }
         if (((itemId_ == id.action_settings3)||(itemId_ == id.action_settings4))||(itemId_ == id.action_settings5)) {
             optionSelected(item);
             return true;
         }
         if (itemId_ == id.action_settings1) {
             optionItem1();
-            return true;
-        }
-        if (itemId_ == id.action_settings2) {
-            action_settings2Selected(item);
             return true;
         }
         return false;

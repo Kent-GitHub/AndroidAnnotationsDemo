@@ -153,14 +153,14 @@ public final class DActy_
     }
 
     @Override
-    public void fiveSecThread() {
-        BackgroundExecutor.execute(new BackgroundExecutor.Task("hehe", 1000, "") {
+    public void doInBackground() {
+        BackgroundExecutor.execute(new BackgroundExecutor.Task("", 0, "") {
 
 
             @Override
             public void execute() {
                 try {
-                    DActy_.super.fiveSecThread();
+                    DActy_.super.doInBackground();
                 } catch (Throwable e) {
                     Thread.getDefaultUncaughtExceptionHandler().uncaughtException(Thread.currentThread(), e);
                 }
@@ -171,14 +171,14 @@ public final class DActy_
     }
 
     @Override
-    public void doInBackground() {
-        BackgroundExecutor.execute(new BackgroundExecutor.Task("", 0, "") {
+    public void fiveSecThread() {
+        BackgroundExecutor.execute(new BackgroundExecutor.Task("hehe", 1000, "") {
 
 
             @Override
             public void execute() {
                 try {
-                    DActy_.super.doInBackground();
+                    DActy_.super.fiveSecThread();
                 } catch (Throwable e) {
                     Thread.getDefaultUncaughtExceptionHandler().uncaughtException(Thread.currentThread(), e);
                 }

@@ -36,5 +36,15 @@
             android:layout_height="wrap_content" 
 			/>
     </LinearLayout>
+    <Button 
+        android:id="@+id/e_btn_forResult"
+        android:text="Start another acty"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"/>
+    <Button 
+        android:id="@+id/e_btn_sendBroadcast"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:text="Send Broadcast"/>
 	
 </LinearLayout>

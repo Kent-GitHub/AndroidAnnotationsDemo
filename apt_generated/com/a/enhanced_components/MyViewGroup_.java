@@ -79,9 +79,9 @@ public final class MyViewGroup_
 
     @Override
     public void onViewChanged(HasViews hasViews) {
-        titleTV = ((TextView) hasViews.findViewById(id.group_title));
-        mIv = ((ImageView) hasViews.findViewById(id.group_iv));
         contentTV = ((TextView) hasViews.findViewById(id.group_content));
+        mIv = ((ImageView) hasViews.findViewById(id.group_iv));
+        titleTV = ((TextView) hasViews.findViewById(id.group_title));
     }
 
 }

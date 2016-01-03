@@ -5,14 +5,13 @@
 
 package com.f.resource_injection;
 
-import org.androidannotations.api.builder.ActivityIntentBuilder;
-import org.androidannotations.api.view.HasViews;
-import org.androidannotations.api.view.OnViewChangedNotifier;
-
 import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup.LayoutParams;
+import org.androidannotations.api.builder.ActivityIntentBuilder;
+import org.androidannotations.api.view.HasViews;
+import org.androidannotations.api.view.OnViewChangedNotifier;
 
 public final class FActy_
     extends FActy

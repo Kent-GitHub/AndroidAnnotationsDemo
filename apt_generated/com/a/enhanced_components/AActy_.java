@@ -78,8 +78,8 @@ public final class AActy_
 
     @Override
     public void onViewChanged(HasViews hasViews) {
-        viewGroup = ((MyViewGroup) hasViews.findViewById(id.a_viewGroup));
         mTextView = ((TextView) hasViews.findViewById(id.a_commom_tv));
+        viewGroup = ((MyViewGroup) hasViews.findViewById(id.a_viewGroup));
         mLL = ((LinearLayout) hasViews.findViewById(id.a_commom_ll));
         {
             View view = hasViews.findViewById(id.a_fragment_acty);

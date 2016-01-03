@@ -5,9 +5,8 @@
 
 package com.a.enhanced_components;
 
-import org.androidannotations.api.builder.ServiceIntentBuilder;
-
 import android.content.Context;
+import org.androidannotations.api.builder.ServiceIntentBuilder;
 
 public final class MyIntentService_
     extends MyIntentService

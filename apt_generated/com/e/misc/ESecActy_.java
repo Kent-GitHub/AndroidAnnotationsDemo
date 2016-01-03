@@ -3,32 +3,27 @@
 //
 
 
-package com.b.injection;
+package com.e.misc;
 
 import android.content.Context;
-import android.content.Intent;
-import android.content.res.Resources;
 import android.os.Bundle;
-import android.text.Html;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
-import android.widget.TextView;
+import android.widget.EditText;
 import com.kent.androidannotationsdemo.R.id;
 import com.kent.androidannotationsdemo.R.layout;
-import com.kent.androidannotationsdemo.R.string;
 import org.androidannotations.api.builder.ActivityIntentBuilder;
 import org.androidannotations.api.view.HasViews;
 import org.androidannotations.api.view.OnViewChangedListener;
 import org.androidannotations.api.view.OnViewChangedNotifier;
 
-public final class BActy_
-    extends BActy
+public final class ESecActy_
+    extends ESecActy
     implements HasViews, OnViewChangedListener
 {
 
     private final OnViewChangedNotifier onViewChangedNotifier_ = new OnViewChangedNotifier();
-    public final static String AGE_EXTRA = "age";
-    public final static String NAME_EXTRA = "name";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -36,17 +31,11 @@ public final class BActy_
         init_(savedInstanceState);
         super.onCreate(savedInstanceState);
         OnViewChangedNotifier.replaceNotifier(previousNotifier);
-        setContentView(layout.bacty_layout);
+        setContentView(layout.e_sec_acty);
     }
 
     private void init_(Bundle savedInstanceState) {
         OnViewChangedNotifier.registerOnViewChangedListener(this);
-        Resources resources_ = this.getResources();
-        myHelloString = Html.fromHtml(resources_.getString(string.hello_html));
-        hello_html = Html.fromHtml(resources_.getString(string.hello_html));
-        hello_Html = Html.fromHtml(resources_.getString(string.hello_html));
-        injectExtras_();
-        afterInject();
     }
 
     @Override
@@ -67,72 +56,57 @@ public final class BActy_
         onViewChangedNotifier_.notifyViewChanged(this);
     }
 
-    public static BActy_.IntentBuilder_ intent(Context context) {
-        return new BActy_.IntentBuilder_(context);
+    public static ESecActy_.IntentBuilder_ intent(Context context) {
+        return new ESecActy_.IntentBuilder_(context);
     }
 
-    public static BActy_.IntentBuilder_ intent(android.app.Fragment fragment) {
-        return new BActy_.IntentBuilder_(fragment);
+    public static ESecActy_.IntentBuilder_ intent(android.app.Fragment fragment) {
+        return new ESecActy_.IntentBuilder_(fragment);
     }
 
-    public static BActy_.IntentBuilder_ intent(android.support.v4.app.Fragment supportFragment) {
-        return new BActy_.IntentBuilder_(supportFragment);
+    public static ESecActy_.IntentBuilder_ intent(android.support.v4.app.Fragment supportFragment) {
+        return new ESecActy_.IntentBuilder_(supportFragment);
     }
 
     @Override
     public void onViewChanged(HasViews hasViews) {
-        mTextView = ((TextView) hasViews.findViewById(id.b_commom_tv));
-        htmlRes = ((TextView) hasViews.findViewById(id.b_htmlRes));
-        helloHtml = ((TextView) hasViews.findViewById(id.b_fromHtml));
-        if (helloHtml!= null) {
-            helloHtml.setText(Html.fromHtml(this.getString(string.hello_html)));
-        }
-        afterViews();
-    }
+        nameEd = ((EditText) hasViews.findViewById(id.e_sec_ed_name));
+        ageEd = ((EditText) hasViews.findViewById(id.e_sec_ed_age));
+        {
+            View view = hasViews.findViewById(id.e_sec_btn_commit);
+            if (view!= null) {
+                view.setOnClickListener(new OnClickListener() {
 
-    private void injectExtras_() {
-        Bundle extras_ = getIntent().getExtras();
-        if (extras_!= null) {
-            if (extras_.containsKey(AGE_EXTRA)) {
-                age = extras_.getInt(AGE_EXTRA);
+
+                    @Override
+                    public void onClick(View view) {
+                        ESecActy_.this.commitAndReturn();
+                    }
+
+                }
+                );
             }
-            if (extras_.containsKey(NAME_EXTRA)) {
-                name = extras_.getString(NAME_EXTRA);
-            }
-            afterExtras();
         }
-    }
-
-    @Override
-    public void setIntent(Intent newIntent) {
-        super.setIntent(newIntent);
-        injectExtras_();
-    }
-
-    @Override
-    public void onNewIntent(Intent intent) {
-        super.onNewIntent(intent);
-        setIntent(intent);
     }
 
     public static class IntentBuilder_
-        extends ActivityIntentBuilder<BActy_.IntentBuilder_>
+        extends ActivityIntentBuilder<ESecActy_.IntentBuilder_>
     {
 
         private android.app.Fragment fragment_;
         private android.support.v4.app.Fragment fragmentSupport_;
 
         public IntentBuilder_(Context context) {
-            super(context, BActy_.class);
+            super(context, ESecActy_.class);
         }
 
         public IntentBuilder_(android.app.Fragment fragment) {
-            super(fragment.getActivity(), BActy_.class);
+            super(fragment.getActivity(), ESecActy_.class);
             fragment_ = fragment;
         }
 
         public IntentBuilder_(android.support.v4.app.Fragment fragment) {
-            super(fragment.getActivity(), BActy_.class);
+            super(fragment.getActivity(), ESecActy_.class);
             fragmentSupport_ = fragment;
         }
 
@@ -147,14 +121,6 @@ public final class BActy_
                     super.startForResult(requestCode);
                 }
             }
-        }
-
-        public BActy_.IntentBuilder_ age(int age) {
-            return super.extra(AGE_EXTRA, age);
-        }
-
-        public BActy_.IntentBuilder_ name(String name) {
-            return super.extra(NAME_EXTRA, name);
         }
 
     }

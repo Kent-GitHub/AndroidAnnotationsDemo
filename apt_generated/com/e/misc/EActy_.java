@@ -5,8 +5,13 @@
 
 package com.e.misc;
 
+import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.EditText;
@@ -24,6 +29,23 @@ public final class EActy_
 {
 
     private final OnViewChangedNotifier onViewChangedNotifier_ = new OnViewChangedNotifier();
+    private final IntentFilter intentFilter1_ = new IntentFilter();
+    private final BroadcastReceiver onActionReceiver_ = new BroadcastReceiver() {
+
+        public final static String NAME_EXTRA = "name";
+        public final static String AGE_EXTRA = "age";
+
+        public void onReceive(Context context, Intent intent) {
+            Bundle extras_ = ((intent.getExtras()!= null)?intent.getExtras():new Bundle());
+            String name = extras_.getString(NAME_EXTRA);
+            int ageFromIntent = extras_.getInt(AGE_EXTRA);
+            EActy_.this.onAction(name, ageFromIntent, context);
+        }
+
+    }
+    ;
+    public final static String NAME_EXTRA = "name";
+    public final static String AGE_EXTRA = "age";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -40,6 +62,8 @@ public final class EActy_
         restoreSavedInstanceState_(savedInstanceState);
         requestWindowFeature(1);
         requestWindowFeature(5);
+        intentFilter1_.addAction("com.kent.sendBroadcast");
+        this.registerReceiver(onActionReceiver_, intentFilter1_);
     }
 
     @Override
@@ -74,8 +98,8 @@ public final class EActy_
 
     @Override
     public void onViewChanged(HasViews hasViews) {
-        nameTv = ((TextView) hasViews.findViewById(id.e_tv_name));
         nameEd = ((EditText) hasViews.findViewById(id.e_ed_name));
+        nameTv = ((TextView) hasViews.findViewById(id.e_tv_name));
         {
             View view = hasViews.findViewById(id.e_orientation);
             if (view!= null) {
@@ -106,7 +130,52 @@ public final class EActy_
                 );
             }
         }
+        {
+            View view = hasViews.findViewById(id.e_btn_forResult);
+            if (view!= null) {
+                view.setOnClickListener(new OnClickListener() {
+
+
+                    @Override
+                    public void onClick(View view) {
+                        EActy_.this.onCLick(view);
+                    }
+
+                }
+                );
+            }
+        }
+        {
+            View view = hasViews.findViewById(id.e_btn_sendBroadcast);
+            if (view!= null) {
+                view.setOnClickListener(new OnClickListener() {
+
+
+                    @Override
+                    public void onClick(View view) {
+                        EActy_.this.onCLick(view);
+                    }
+
+                }
+                );
+            }
+        }
         afterViews();
+    }
+
+    @Override
+    public void doSomeDbWork(final SQLiteDatabase db) {
+        db.beginTransaction();
+        try {
+            EActy_.super.doSomeDbWork(db);
+            db.setTransactionSuccessful();
+            return ;
+        } catch (RuntimeException e) {
+            Log.e("EActy_", "Error in transaction", e);
+            throw e;
+        } finally {
+            db.endTransaction();
+        }
     }
 
     @Override
@@ -120,6 +189,28 @@ public final class EActy_
             return ;
         }
         name = savedInstanceState.getString("name");
+    }
+
+    @Override
+    public void onDestroy() {
+        this.unregisterReceiver(onActionReceiver_);
+        super.onDestroy();
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch (requestCode) {
+            case  0 :
+                EActy_.this.onResult(resultCode, data);
+                {
+                    Bundle extras_ = (((data!= null)&&(data.getExtras()!= null))?data.getExtras():new Bundle());
+                    String name = extras_.getString(NAME_EXTRA);
+                    String age = extras_.getString(AGE_EXTRA);
+                    EActy_.this.onResule(resultCode, data, name, age);
+                }
+                break;
+        }
     }
 
     public static class IntentBuilder_

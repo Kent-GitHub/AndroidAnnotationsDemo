@@ -5,14 +5,13 @@
 
 package com.i.preference_api_helpers;
 
-import org.androidannotations.api.builder.ActivityIntentBuilder;
-import org.androidannotations.api.view.HasViews;
-import org.androidannotations.api.view.OnViewChangedNotifier;
-
 import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup.LayoutParams;
+import org.androidannotations.api.builder.ActivityIntentBuilder;
+import org.androidannotations.api.view.HasViews;
+import org.androidannotations.api.view.OnViewChangedNotifier;
 
 public final class IActy_
     extends IActy

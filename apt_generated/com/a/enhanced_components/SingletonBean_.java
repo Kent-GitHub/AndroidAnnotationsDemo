@@ -5,9 +5,8 @@
 
 package com.a.enhanced_components;
 
-import org.androidannotations.api.view.OnViewChangedNotifier;
-
 import android.content.Context;
+import org.androidannotations.api.view.OnViewChangedNotifier;
 
 public final class SingletonBean_
     extends SingletonBean

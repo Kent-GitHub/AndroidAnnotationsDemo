@@ -5,21 +5,19 @@
 
 package com.a.enhanced_components;
 
-import org.androidannotations.api.SdkVersionHelper;
-import org.androidannotations.api.builder.ActivityIntentBuilder;
-import org.androidannotations.api.view.HasViews;
-import org.androidannotations.api.view.OnViewChangedListener;
-import org.androidannotations.api.view.OnViewChangedNotifier;
-
 import android.content.Context;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
-
 import com.kent.androidannotationsdemo.R.id;
 import com.kent.androidannotationsdemo.R.layout;
+import org.androidannotations.api.SdkVersionHelper;
+import org.androidannotations.api.builder.ActivityIntentBuilder;
+import org.androidannotations.api.view.HasViews;
+import org.androidannotations.api.view.OnViewChangedListener;
+import org.androidannotations.api.view.OnViewChangedNotifier;
 
 public final class FragmentActy_
     extends FragmentActy

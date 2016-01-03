@@ -5,18 +5,16 @@
 
 package com.a.enhanced_components;
 
-import org.androidannotations.api.builder.FragmentBuilder;
-import org.androidannotations.api.view.HasViews;
-import org.androidannotations.api.view.OnViewChangedListener;
-import org.androidannotations.api.view.OnViewChangedNotifier;
-
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import com.kent.androidannotationsdemo.R.layout;
+import org.androidannotations.api.builder.FragmentBuilder;
+import org.androidannotations.api.view.HasViews;
+import org.androidannotations.api.view.OnViewChangedListener;
+import org.androidannotations.api.view.OnViewChangedNotifier;
 
 public final class MyFragment_
     extends com.a.enhanced_components.MyFragment

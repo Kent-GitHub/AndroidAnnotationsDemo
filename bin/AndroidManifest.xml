@@ -35,6 +35,8 @@
         <activity android:name="com.c.event_binding.ListViewActy_"></activity>
         <activity android:name="com.d.threading.DActy_"></activity>
         <activity android:name="com.e.misc.EActy_"></activity>
+        <activity android:name="com.e.misc.ESecActy_"></activity>
+        <receiver android:name="com.e.misc.EMyReceiver_"></receiver>
         <activity android:name="com.f.resource_injection.Facty_"></activity>
         <activity android:name="com.g.rest_api.GActy_"></activity>
         <activity android:name="com.h.typesafe_sharedpreferences.HActy_"></activity>
