@@ -1,0 +1,54 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity" >
+
+    <Button 
+        android:id="@+id/btn1"
+        android:text="Enhanced components"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"/>
+    <Button 
+        android:id="@+id/btn2"
+        android:text="Injection"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"/>
+    <Button 
+        android:id="@+id/btn3"
+        android:text="Event binding"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"/>
+    <Button 
+        android:id="@+id/btn4"
+        android:text="Threading"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"/>
+    <Button 
+        android:id="@+id/btn5"
+        android:text="Misc"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"/>
+    <Button 
+        android:id="@+id/btn6"
+        android:text="Resource injection"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"/>
+    <Button 
+        android:id="@+id/btn7"
+        android:text="Rest API"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"/>
+    <Button 
+        android:id="@+id/btn8"
+        android:text="Typesafe SharedPreferences"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"/>
+    <Button 
+        android:id="@+id/btn9"
+        android:text="Preference API helpers"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"/>
+
+</LinearLayout>

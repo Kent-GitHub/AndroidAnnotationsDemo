@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/a_commom_ll"
+    android:orientation="vertical" >
+    
+    <Button 
+        android:text="Fragment Activity"
+        android:id="@+id/a_fragment_acty"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"/>
+
+    <TextView 
+        android:id="@+id/a_commom_tv"
+        android:text="Commom TextView"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"/>
+    
+    <com.a.enhanced_components.MyViewGroup_
+        android:id="@+id/a_viewGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+    </com.a.enhanced_components.MyViewGroup_>
+    
+    <Button
+        android:id="@+id/a_group_setText"
+        android:text="ViewGroup SetText" 
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"/>
+    
+</LinearLayout>
