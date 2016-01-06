@@ -1,3 +1,6 @@
+.DS\_Store
+*.swp
+*.sw*
 # Built application files
 *.apk
 *.ap_
