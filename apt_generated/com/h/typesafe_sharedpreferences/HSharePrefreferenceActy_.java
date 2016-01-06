@@ -4,30 +4,29 @@
 //
 
 
-package com.c.event_binding;
+package com.h.typesafe_sharedpreferences;
 
 import android.app.Activity;
 import android.content.Context;
 import android.os.Build.VERSION;
 import android.os.Build.VERSION_CODES;
 import android.os.Bundle;
+import android.preference.CheckBoxPreference;
+import android.preference.Preference;
+import android.preference.Preference.OnPreferenceChangeListener;
+import android.preference.Preference.OnPreferenceClickListener;
 import android.support.v4.app.ActivityCompat;
 import android.view.View;
 import android.view.ViewGroup.LayoutParams;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
-import android.widget.AdapterView.OnItemLongClickListener;
-import android.widget.AdapterView.OnItemSelectedListener;
-import android.widget.ListView;
-import com.kent.androidannotationsdemo.R.layout;
+import com.kent.androidannotationsdemo.R.string;
+import com.kent.androidannotationsdemo.R.xml;
 import org.androidannotations.api.builder.ActivityIntentBuilder;
 import org.androidannotations.api.view.HasViews;
-import org.androidannotations.api.view.OnViewChangedListener;
 import org.androidannotations.api.view.OnViewChangedNotifier;
 
-public final class ListViewActy_
-    extends ListViewActy
-    implements HasViews, OnViewChangedListener
+public final class HSharePrefreferenceActy_
+    extends HSharePrefreferenceActy
+    implements HasViews
 {
 
     private final OnViewChangedNotifier onViewChangedNotifier_ = new OnViewChangedNotifier();
@@ -38,11 +37,10 @@ public final class ListViewActy_
         init_(savedInstanceState);
         super.onCreate(savedInstanceState);
         OnViewChangedNotifier.replaceNotifier(previousNotifier);
-        setContentView(layout.c_list_acty);
+        addPreferencesFromResource(xml.preference);
     }
 
     private void init_(Bundle savedInstanceState) {
-        OnViewChangedNotifier.registerOnViewChangedListener(this);
     }
 
     @Override
@@ -63,80 +61,70 @@ public final class ListViewActy_
         onViewChangedNotifier_.notifyViewChanged(this);
     }
 
-    public static ListViewActy_.IntentBuilder_ intent(Context context) {
-        return new ListViewActy_.IntentBuilder_(context);
+    public static HSharePrefreferenceActy_.IntentBuilder_ intent(Context context) {
+        return new HSharePrefreferenceActy_.IntentBuilder_(context);
     }
 
-    public static ListViewActy_.IntentBuilder_ intent(android.app.Fragment fragment) {
-        return new ListViewActy_.IntentBuilder_(fragment);
+    public static HSharePrefreferenceActy_.IntentBuilder_ intent(android.app.Fragment fragment) {
+        return new HSharePrefreferenceActy_.IntentBuilder_(fragment);
     }
 
-    public static ListViewActy_.IntentBuilder_ intent(android.support.v4.app.Fragment supportFragment) {
-        return new ListViewActy_.IntentBuilder_(supportFragment);
+    public static HSharePrefreferenceActy_.IntentBuilder_ intent(android.support.v4.app.Fragment supportFragment) {
+        return new HSharePrefreferenceActy_.IntentBuilder_(supportFragment);
     }
 
     @Override
-    public void onViewChanged(HasViews hasViews) {
-        mListView = ((ListView) hasViews.findViewById(com.kent.androidannotationsdemo.R.id.c_listView));
-        if (mListView!= null) {
-            mListView.setOnItemClickListener(new OnItemClickListener() {
+    public void addPreferencesFromResource(int preferencesResId) {
+        super.addPreferencesFromResource(preferencesResId);
+        threeGCheckBox = ((CheckBoxPreference) this.findPreference(this.getString(string.set_3g)));
+        RovingCheckBox = ((CheckBoxPreference) this.findPreference(this.getString(string.set_roving)));
+        if (threeGCheckBox!= null) {
+            threeGCheckBox.setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
 
 
                 @Override
-                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    ListViewActy_.this.itemClick(position);
-                }
-
-            }
-            );
-            mListView.setOnItemSelectedListener(new OnItemSelectedListener() {
-
-
-                @Override
-                public void onNothingSelected(AdapterView<?> parent) {
-                    ListViewActy_.this.itemSelected(false, -1);
-                }
-
-                @Override
-                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                    ListViewActy_.this.itemSelected(true, position);
-                }
-
-            }
-            );
-            mListView.setOnItemLongClickListener(new OnItemLongClickListener() {
-
-
-                @Override
-                public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                    ListViewActy_.this.c_listViewItemLongClicked(((String) parent.getAdapter().getItem(position)));
+                public boolean onPreferenceChange(Preference preference, Object newValue) {
+                    HSharePrefreferenceActy_.this.checkedChangedOn3G(preference);
                     return true;
                 }
 
             }
             );
         }
-        afterViews();
+        if (RovingCheckBox!= null) {
+            RovingCheckBox.setOnPreferenceClickListener(new OnPreferenceClickListener() {
+
+
+                @Override
+                public boolean onPreferenceClick(Preference preference) {
+                    HSharePrefreferenceActy_.this.onRovingClick();
+                    return true;
+                }
+
+            }
+            );
+        }
+        afterPrefs();
     }
 
     public static class IntentBuilder_
-        extends ActivityIntentBuilder<ListViewActy_.IntentBuilder_>
+        extends ActivityIntentBuilder<HSharePrefreferenceActy_.IntentBuilder_>
     {
 
         private android.app.Fragment fragment_;
         private android.support.v4.app.Fragment fragmentSupport_;
 
         public IntentBuilder_(Context context) {
-            super(context, ListViewActy_.class);
+            super(context, HSharePrefreferenceActy_.class);
         }
 
         public IntentBuilder_(android.app.Fragment fragment) {
-            super(fragment.getActivity(), ListViewActy_.class);
+            super(fragment.getActivity(), HSharePrefreferenceActy_.class);
             fragment_ = fragment;
         }
 
         public IntentBuilder_(android.support.v4.app.Fragment fragment) {
-            super(fragment.getActivity(), ListViewActy_.class);
+            super(fragment.getActivity(), HSharePrefreferenceActy_.class);
             fragmentSupport_ = fragment;
         }
 

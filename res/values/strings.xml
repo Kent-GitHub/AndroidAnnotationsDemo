@@ -13,4 +13,6 @@
 	<string name="nick_name">Nate</string>
 	<string name="namePrefKey">nameKey</string>
 	<string name="agePrefKey">ageKey</string>
+	<string name="set_3g">set_3g</string>
+	<string name="set_roving">set_roving</string>
 </resources>

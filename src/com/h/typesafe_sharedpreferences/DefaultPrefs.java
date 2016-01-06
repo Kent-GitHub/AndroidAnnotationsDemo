@@ -7,11 +7,12 @@ import org.androidannotations.annotations.sharedpreferences.SharedPref;
 import org.androidannotations.annotations.sharedpreferences.SharedPref.Scope;
 
 import com.kent.androidannotationsdemo.R;
-@SharedPref(value=Scope.ACTIVITY)
+//@SharedPref(value=Scope.ACTIVITY)
 //@SharedPref(value=Scope.ACTIVITY_DEFAULT)
 //@SharedPref(value=Scope.APPLICATION_DEFAULT)
 //@SharedPref(value=Scope.UNIQUE)
-public interface MyPrefInterface {
+@SharedPref
+public interface DefaultPrefs {
 	@DefaultString("John")
 	String name();
 	
@@ -23,4 +24,6 @@ public interface MyPrefInterface {
 	@DefaultRes(R.string.nick_name)
 	String resourceName();
 	
+	@DefaultString("DefaultName")
+	String scopeName();
 }

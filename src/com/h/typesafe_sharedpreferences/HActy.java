@@ -9,6 +9,7 @@ import org.androidannotations.annotations.sharedpreferences.Pref;
 
 import android.app.Activity;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,25 +18,28 @@ import com.kent.androidannotationsdemo.R;
 public class HActy extends Activity{
 	
 	@Pref
-	MyPrefInterface_ myPrefs;
+	ActivityPrefs_ activityPrefs;
+	@Pref 
+	DefaultPrefs_ defaultPrefs;
 	@Pref
-	MyPrefInterface_ HActy_MyPrefs;
-	@Pref
-	MyPrefInterface_ HActy;
-	@Pref
-    MyPrefInterface_	MyPrefs; 
+	ApplicationPrefs_ applicationPrefs;
 	
 	@ViewById()
 	TextView h_tv_name,h_tv_age,h_ed_age,h_ed_name,h_tv_prefsStatus;
-	@Click({R.id.h_btn_name,R.id.h_btn_age,R.id.h_btn_clear,R.id.h_btn_prefsStatus})
+	@ViewById(R.id.h_ed_scopeName)
+	EditText edScopeName;
+	@ViewById(R.id.h_tv_scopeName)
+	TextView tvScopeName;
+	@Click({R.id.h_btn_name,R.id.h_btn_age,R.id.h_btn_clear,R.id.h_btn_prefsStatus,R.id.h_btn_secActy,R.id.h_btn_actyPrefs,
+		R.id.h_btn_defaultPrefs,R.id.h_btn_applicationPrefs,R.id.h_btn_prefsActy})
 	void onclick(View v){
 		long now;
 		long lastUpdated;
 		switch (v.getId()) {
 		case R.id.h_btn_name:
-			myPrefs.name().put(h_ed_name.getText().toString());
+			activityPrefs.name().put(h_ed_name.getText().toString());
 			now = System.currentTimeMillis();
-			myPrefs.lastUpdate().put(now);
+			activityPrefs.lastUpdate().put(now);
 			break;
 		case R.id.h_btn_age:
 			try {
@@ -43,29 +47,45 @@ public class HActy extends Activity{
 				if (age<0) {
 					throw new Exception();
 				}
-				myPrefs.age().put(age);
+				activityPrefs.age().put(age);
 				now = System.currentTimeMillis();
-				myPrefs.lastUpdate().put(now);
+				activityPrefs.lastUpdate().put(now);
 			} catch (Exception e) {
 				Toast.makeText(this, "请输入一个大於零的整数", 0).show();
 			}
 			break;
 		case R.id.h_btn_clear:
-				myPrefs.clear();
+			activityPrefs.clear();
+			defaultPrefs.clear();
+			applicationPrefs.clear();
 				break;
 		case R.id.h_btn_prefsStatus:
-			boolean nameExists = myPrefs.name().exists();
-			lastUpdated = myPrefs.lastUpdate().get();
+			boolean nameExists = activityPrefs.name().exists();
+			lastUpdated = activityPrefs.lastUpdate().get();
 			if (lastUpdated==0) {
 				now = System.currentTimeMillis();
-				lastUpdated = myPrefs.lastUpdate().getOr(now);
-				myPrefs.lastUpdate().put(lastUpdated);
+				lastUpdated = activityPrefs.lastUpdate().getOr(now);
+				activityPrefs.lastUpdate().put(lastUpdated);
 			}
-			h_tv_prefsStatus.setText("myPrefs.name().exists() - "+nameExists+"  myPrefs.age().exists() - "+myPrefs.age().exists()
+			h_tv_prefsStatus.setText("myPrefs.name().exists() - "+nameExists+"  myPrefs.age().exists() - "+activityPrefs.age().exists()
 					+"\n"+ "DefaultName-John,      DefaultAge-20"+"\n"
-					+"myPrefs.name().get() : "+myPrefs.name().get()+", myPrefs.age().get() : "+myPrefs.age().get()+"\n"
-					+"@DefaultRes nickName : "+myPrefs.resourceName().get()+"\n"
+					+"myPrefs.name().get() : "+activityPrefs.name().get()+", myPrefs.age().get() : "+activityPrefs.age().get()+"\n"
+					+"@DefaultRes nickName : "+activityPrefs.resourceName().get()+"\n"
 					+"Last Time Update:"+new Date(lastUpdated));
+			break;
+		case R.id.h_btn_secActy:
+			HSecActivity_.intent(this).start();
+		case R.id.h_btn_actyPrefs:
+			activityPrefs.scopeName().put(edScopeName.getText().toString());
+			break;
+		case R.id.h_btn_defaultPrefs:
+			defaultPrefs.scopeName().put(edScopeName.getText().toString());
+			break;
+		case R.id.h_btn_applicationPrefs:
+			applicationPrefs.scopeName().put(edScopeName.getText().toString());
+			break;
+		case R.id.h_btn_prefsActy:
+			HSharePrefreferenceActy_.intent(this).start();
 			break;
 		default:
 //					myPrefs.edit()
@@ -77,5 +97,7 @@ public class HActy extends Activity{
 				break;
 		}
 	}
-	
+	/**
+	 * Using it with a PreferenceActivity
+	 */
 }

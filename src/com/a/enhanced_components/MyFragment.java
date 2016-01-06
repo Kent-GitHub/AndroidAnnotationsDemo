@@ -14,14 +14,6 @@ public class MyFragment extends android.support.v4.app.Fragment{
 	 
 	String str;
 	
-//	@Override
-//	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-//			Bundle savedInstanceState) {
-//		View view=inflater.inflate(R.layout.frag_layout, container ,false);
-//		tv=(TextView) view.findViewById(R.id.a_frag_tv);
-//		return view;
-//	}
-	
 	@AfterViews
 	void afterView(){
 		if (str!=null) {
@@ -32,5 +24,4 @@ public class MyFragment extends android.support.v4.app.Fragment{
 	void setString(String str){
 		this.str=str;
 	}
-	
 }

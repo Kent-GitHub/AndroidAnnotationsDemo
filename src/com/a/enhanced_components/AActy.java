@@ -1,10 +1,5 @@
 package com.a.enhanced_components;
 
-/**
- * ignore:5.6.DialogFragments
- * 待解决：@EReceiver
- */
-
 import org.androidannotations.annotations.AfterInject;
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.App;
@@ -101,5 +96,11 @@ public class AActy extends Activity{
 		super.onStop();
 		stringBuilder.setLength(0);
 	}
+	
+	
+	/**
+	 * ignore:5.6.DialogFragments
+	 * 待解决：@EReceiver
+	 */
 	
 }

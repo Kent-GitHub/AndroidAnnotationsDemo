@@ -6,6 +6,8 @@ import org.androidannotations.annotations.res.ColorRes;
 import org.androidannotations.annotations.res.DimensionRes;
 import org.androidannotations.annotations.res.StringRes;
 
+import com.kent.androidannotationsdemo.R;
+
 
 import android.app.Activity;
 import android.content.res.XmlResourceParser;

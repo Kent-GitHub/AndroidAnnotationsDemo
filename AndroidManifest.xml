@@ -40,6 +40,8 @@
         <activity android:name="com.f.resource_injection.FActy_"></activity>
         <activity android:name="com.g.rest_api.GActy_"></activity>
         <activity android:name="com.h.typesafe_sharedpreferences.HActy_"></activity>
+        <activity android:name="com.h.typesafe_sharedpreferences.HSecActivity_"></activity>
+        <activity android:name="com.h.typesafe_sharedpreferences.HSharePrefreferenceActy_"></activity>
         <activity android:name="com.i.preference_api_helpers.IActy_"></activity>
     </application>
 
