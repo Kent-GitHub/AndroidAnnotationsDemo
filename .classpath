@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+<<<<<<< HEAD
+=======
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="gen"/>
+>>>>>>> 26f0af6cd8875d78402923498af61e9c7ff49cbe
+	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
+	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
+	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.DEPENDENCIES"/>
+	<classpathentry kind="src" path="apt_generated">
+		<attributes>
+			<attribute name="optional" value="true"/>
+		</attributes>
+	</classpathentry>
+<<<<<<< HEAD
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="gen"/>
+=======
+>>>>>>> 26f0af6cd8875d78402923498af61e9c7ff49cbe
+	<classpathentry kind="output" path="bin/classes"/>
+</classpath>

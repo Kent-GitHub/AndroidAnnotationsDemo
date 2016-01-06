@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.kent.androidannotationsdemo"
+    android:versionCode="1"
+<<<<<<< HEAD
+    android:versionName="1.0" android:installLocation="auto">
+
+    <uses-sdk
+        android:minSdkVersion="15"
+        android:maxSdkVersion="20"/>
+=======
+    android:versionName="1.0" android:installLocation="preferExternal">
+
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="18" />
+>>>>>>> 26f0af6cd8875d78402923498af61e9c7ff49cbe
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:name="com.a.enhanced_components.MyApplication_"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.kent.annotationsdemo.MainActivity_"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.a.enhanced_components.AActy_"></activity>
+        <activity android:name="com.a.enhanced_components.FragmentActy_"></activity>
+        <provider android:name="com.a.enhanced_components.MyProvider_"
+            android:authorities=""></provider>
+        <receiver android:name="com.a.enhanced_components.MyReceiver_"></receiver>
+        <service android:name="com.a.enhanced_components.MyService_"></service>
+        <service android:name="com.a.enhanced_components.MyIntentService_"></service>
+        <activity android:name="com.b.injection.BActy_"></activity>
+        <activity android:name="com.c.event_binding.CActy_"></activity>
+        <activity android:name="com.c.event_binding.ListViewActy_"></activity>
+        <activity android:name="com.d.threading.DActy_"></activity>
+        <activity android:name="com.e.misc.EActy_"></activity>
+        <activity android:name="com.e.misc.ESecActy_"></activity>
+        <receiver android:name="com.e.misc.EMyReceiver_"></receiver>
+<<<<<<< HEAD
+        <activity android:name="com.f.resource_injection.FActy_"></activity>
+=======
+        <activity android:name="com.f.resource_injection.Facty_"></activity>
+>>>>>>> 26f0af6cd8875d78402923498af61e9c7ff49cbe
+        <activity android:name="com.g.rest_api.GActy_"></activity>
+        <activity android:name="com.h.typesafe_sharedpreferences.HActy_"></activity>
+        <activity android:name="com.i.preference_api_helpers.IActy_"></activity>
+    </application>
+
+</manifest>
